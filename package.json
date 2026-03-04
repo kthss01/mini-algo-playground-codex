@@ -1,15 +1,20 @@
 {
   "name": "mini-algo-playground-codex",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node.js 기반 알고리즘 학습/시각화 실험 프로젝트",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "dev": "python3 -m http.server 8080",
-    "build": "node -e \"console.log(\"No build step required\")\""
+    "build": "node -e \"console.log('No build step required')\""
   },
-  "keywords": [],
+  "keywords": [
+    "algorithm",
+    "visualization",
+    "jest",
+    "vanilla-js"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs"
