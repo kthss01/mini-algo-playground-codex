@@ -45,12 +45,23 @@ describe('problems registry', () => {
     });
   });
 
+  test('P004 LRU Cache 문제가 존재한다', () => {
+    const p004 = getProblemById('P004');
+
+    expect(p004).not.toBeNull();
+    expect(p004).toMatchObject({
+      id: 'P004',
+      title: 'LRU Cache',
+      rendererType: 'array',
+    });
+  });
+
   test('존재하지 않는 문제 id는 null을 반환한다', () => {
     expect(getProblemById('P999')).toBeNull();
   });
 
   test('buildSteps는 Step 배열을 반환하고 done step을 포함한다', () => {
-    const problem = getProblemById('P003');
+    const problem = getProblemById('P004');
     const steps = problem.buildSteps(problem.defaultInput);
 
     expect(Array.isArray(steps)).toBe(true);
@@ -59,7 +70,7 @@ describe('problems registry', () => {
     expect(steps.at(-1)).toMatchObject({ meta: { label: 'done' } });
   });
 
-  test('registry에는 최소 4개 문제가 등록되어 있다', () => {
-    expect(registry.length).toBeGreaterThanOrEqual(4);
+  test('registry에는 최소 5개 문제가 등록되어 있다', () => {
+    expect(registry.length).toBeGreaterThanOrEqual(5);
   });
 });

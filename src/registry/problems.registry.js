@@ -2,6 +2,7 @@ const { buildDummySteps } = require('../visualizers/p000_dummy.steps');
 const { buildTwoSumSteps } = require('../visualizers/p001_two_sum.steps');
 const { buildMergeIntervalsSteps } = require('../visualizers/p002_merge_intervals.steps');
 const { buildTopKFrequentSteps } = require('../visualizers/p003_top_k_frequent.steps');
+const { buildLRUSteps } = require('../visualizers/p004_lru_cache.steps');
 
 const registry = [
   {
@@ -46,6 +47,22 @@ const registry = [
     },
     rendererType: 'array',
     buildSteps: buildTopKFrequentSteps,
+  },
+  {
+    id: 'P004',
+    title: 'LRU Cache',
+    defaultInput: {
+      capacity: 2,
+      ops: [
+        { type: 'put', key: 1, value: 1 },
+        { type: 'put', key: 2, value: 2 },
+        { type: 'get', key: 1 },
+        { type: 'put', key: 3, value: 3 },
+        { type: 'get', key: 2 },
+      ],
+    },
+    rendererType: 'array',
+    buildSteps: buildLRUSteps,
   },
 ];
 

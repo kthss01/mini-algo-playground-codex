@@ -10,6 +10,8 @@ export function renderMapListState(payload) {
     {
       map: payload.map ?? null,
       list: payload.list ?? null,
+      order: payload.order ?? null,
+      size: payload.size ?? null,
       seen: payload.seen ?? null,
       freq: payload.freq ?? null,
       heap: payload.heap ?? null,
@@ -21,6 +23,10 @@ export function renderMapListState(payload) {
       pair: payload.pair ?? null,
       k: payload.k ?? null,
       result: payload.result ?? null,
+      op: payload.op ?? null,
+      output: payload.output ?? null,
+      outputs: payload.outputs ?? null,
+      capacity: payload.capacity ?? null,
     },
     null,
     2

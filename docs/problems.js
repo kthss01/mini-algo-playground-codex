@@ -303,6 +303,116 @@ function buildTopKFrequentSteps(input) {
   return steps;
 }
 
+
+function buildLRUSteps(input) {
+  const capacity = Math.max(1, Number(input?.capacity) || 1);
+  const ops = Array.isArray(input?.ops) ? input.ops : [];
+
+  const map = new Map();
+  const order = [];
+  const outputs = [];
+
+  function touch(key) {
+    const idx = order.indexOf(key);
+    if (idx >= 0) order.splice(idx, 1);
+    order.unshift(key);
+  }
+
+  const steps = [
+    {
+      kind: 'state',
+      payload: {
+        capacity,
+        opIndex: null,
+        op: null,
+        output: null,
+        outputs: [],
+        size: 0,
+        order: [],
+        map: {},
+      },
+      meta: { label: 'init' },
+    },
+  ];
+
+  ops.forEach((op, opIndex) => {
+    if (op?.type === 'put') {
+      const key = Number(op.key);
+      const value = Number(op.value);
+
+      if (map.has(key)) {
+        map.set(key, value);
+        touch(key);
+      } else {
+        map.set(key, value);
+        touch(key);
+        if (map.size > capacity) {
+          const removedKey = order.pop();
+          map.delete(removedKey);
+        }
+      }
+
+      steps.push({
+        kind: 'visit',
+        payload: {
+          capacity,
+          opIndex,
+          op,
+          output: null,
+          outputs: [...outputs],
+          size: map.size,
+          order: [...order],
+          map: Object.fromEntries([...map.entries()].map(([k, v]) => [k, v])),
+        },
+        meta: { label: `put(${op.key}, ${op.value})` },
+      });
+      return;
+    }
+
+    if (op?.type === 'get') {
+      const key = Number(op.key);
+      let output = -1;
+      if (map.has(key)) {
+        output = map.get(key);
+        touch(key);
+      }
+      outputs.push(output);
+
+      steps.push({
+        kind: 'state',
+        payload: {
+          capacity,
+          opIndex,
+          op,
+          output,
+          outputs: [...outputs],
+          size: map.size,
+          order: [...order],
+          map: Object.fromEntries([...map.entries()].map(([k, v]) => [k, v])),
+        },
+        meta: { label: `get(${op.key}) => ${output}` },
+      });
+    }
+  });
+
+  steps.push({
+    kind: 'state',
+    payload: {
+      capacity,
+      opIndex: ops.length,
+      op: null,
+      output: null,
+      outputs: [...outputs],
+      size: map.size,
+      order: [...order],
+      map: Object.fromEntries([...map.entries()].map(([k, v]) => [k, v])),
+    },
+    meta: { label: 'done' },
+  });
+
+  return steps;
+}
+
 export const problems = [
   {
     id: 'P000',
@@ -347,5 +457,22 @@ export const problems = [
     },
     rendererType: 'array',
     buildSteps: buildTopKFrequentSteps,
+  },
+
+  {
+    id: 'P004',
+    title: 'LRU Cache',
+    defaultInput: {
+      capacity: 2,
+      ops: [
+        { type: 'put', key: 1, value: 1 },
+        { type: 'put', key: 2, value: 2 },
+        { type: 'get', key: 1 },
+        { type: 'put', key: 3, value: 3 },
+        { type: 'get', key: 2 },
+      ],
+    },
+    rendererType: 'array',
+    buildSteps: buildLRUSteps,
   },
 ];

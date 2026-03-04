@@ -29,6 +29,7 @@ export function renderStepState(container, step) {
   const hasMapList =
     payload.map ||
     payload.list ||
+    payload.order ||
     payload.seen ||
     payload.freq ||
     payload.heap ||

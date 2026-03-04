@@ -103,3 +103,15 @@
 - 결과: `docs/problems.js`에 P003 Step 생성 흐름 추가
 - 결과: 렌더러가 `freq`, `heap`, `pushed/removed` 상태를 표시하도록 확장
 - 결과: 레지스트리 테스트에 P003 검증 추가
+
+### D7 P004 문제 아티팩트 추가
+- 수행 일시: 2026-03-04
+- 결과: `problems/P004_lru_cache.md`, `src/algorithms/p004_lru_cache.js`, `src/visualizers/p004_lru_cache.steps.js`, `test/p004_lru_cache.test.js` 작성
+- 포함: HashMap+DoublyLinkedList 기반 LRU, 시나리오 실행기, 캐시 상태 스텝 기록, 기본/엣지 테스트
+
+### D8 P004 레지스트리/UI 연결
+- 수행 일시: 2026-03-04
+- 결과: `src/registry/problems.registry.js`에 P004 등록
+- 결과: `docs/problems.js`에 P004 Step 생성 흐름 추가
+- 결과: 렌더러가 `order`, `size`, `op/output/outputs`, `capacity` 상태를 표시하도록 확장
+- 결과: 레지스트리 테스트에 P004 검증 추가
