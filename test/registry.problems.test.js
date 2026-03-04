@@ -7,6 +7,7 @@ describe('problems registry', () => {
     expect(dummy).not.toBeNull();
     expect(dummy).toMatchObject({
       id: 'P000',
+      title: 'Dummy Walkthrough',
       rendererType: 'array',
     });
   });
@@ -15,12 +16,13 @@ describe('problems registry', () => {
     expect(getProblemById('P999')).toBeNull();
   });
 
-  test('buildSteps는 Step 배열을 반환한다', () => {
+  test('buildSteps는 Step 배열을 반환하고 done step을 포함한다', () => {
     const [problem] = registry;
     const steps = problem.buildSteps(problem.defaultInput);
 
     expect(Array.isArray(steps)).toBe(true);
     expect(steps[0]).toHaveProperty('kind');
     expect(steps[0]).toHaveProperty('payload');
+    expect(steps.at(-1)).toMatchObject({ meta: { label: 'done' } });
   });
 });

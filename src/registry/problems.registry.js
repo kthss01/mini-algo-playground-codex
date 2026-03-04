@@ -1,18 +1,14 @@
+const { buildDummySteps } = require('../visualizers/p000_dummy.steps');
+
 const registry = [
   {
     id: 'P000',
-    title: 'Dummy',
+    title: 'Dummy Walkthrough',
     defaultInput: {
       items: [1, 2, 3],
     },
     rendererType: 'array',
-    buildSteps: () => [
-      {
-        kind: 'state',
-        payload: { message: 'dummy init' },
-        meta: { label: 'init' },
-      },
-    ],
+    buildSteps: buildDummySteps,
   },
 ];
 

@@ -52,3 +52,16 @@
 - 수행 일시: 2026-03-04
 - 결과: `docs/renderers/commonRenderer.js`, `arrayRenderer.js`, `mapListRenderer.js` 작성
 - 포함: Step payload 타입별 렌더 분기 및 기본 시각화
+
+## Phase C
+
+### C1 더미 문제 아티팩트 추가
+- 수행 일시: 2026-03-04
+- 결과: `problems/P000_dummy.md`, `src/algorithms/p000_dummy.js`, `src/visualizers/p000_dummy.steps.js` 작성
+- 포함: 문제 명세, 순수 함수, Step 배열 생성기
+
+### C2 레지스트리/문서 UI/테스트 연결
+- 수행 일시: 2026-03-04
+- 결과: `src/registry/problems.registry.js`를 P000 steps 생성기와 연결
+- 결과: `docs/problems.js`를 P000 더미 흐름(init/visit/done)으로 갱신
+- 결과: `test/p000_dummy.test.js` 추가 및 `test/registry.problems.test.js` 강화
