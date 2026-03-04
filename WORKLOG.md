@@ -91,3 +91,15 @@
 - 결과: `docs/problems.js`에 P002 Step 생성 흐름 추가
 - 결과: 배열 렌더러가 interval/merged 상태를 표시하도록 확장
 - 결과: 레지스트리 테스트에 P002 검증 추가
+
+### D5 P003 문제 아티팩트 추가
+- 수행 일시: 2026-03-04
+- 결과: `problems/P003_top_k_frequent.md`, `src/algorithms/p003_top_k_frequent.js`, `src/visualizers/p003_top_k_frequent.steps.js`, `test/p003_top_k_frequent.test.js` 작성
+- 포함: Map+MinHeap 기반 상위 K 빈도 계산, 힙 push/pop Step 기록, 기본/엣지 테스트
+
+### D6 P003 레지스트리/UI 연결
+- 수행 일시: 2026-03-04
+- 결과: `src/registry/problems.registry.js`에 P003 등록
+- 결과: `docs/problems.js`에 P003 Step 생성 흐름 추가
+- 결과: 렌더러가 `freq`, `heap`, `pushed/removed` 상태를 표시하도록 확장
+- 결과: 레지스트리 테스트에 P003 검증 추가

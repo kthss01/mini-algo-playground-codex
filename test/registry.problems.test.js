@@ -34,12 +34,23 @@ describe('problems registry', () => {
     });
   });
 
+  test('P003 Top K Frequent 문제가 존재한다', () => {
+    const p003 = getProblemById('P003');
+
+    expect(p003).not.toBeNull();
+    expect(p003).toMatchObject({
+      id: 'P003',
+      title: 'Top K Frequent',
+      rendererType: 'array',
+    });
+  });
+
   test('존재하지 않는 문제 id는 null을 반환한다', () => {
     expect(getProblemById('P999')).toBeNull();
   });
 
   test('buildSteps는 Step 배열을 반환하고 done step을 포함한다', () => {
-    const problem = getProblemById('P002');
+    const problem = getProblemById('P003');
     const steps = problem.buildSteps(problem.defaultInput);
 
     expect(Array.isArray(steps)).toBe(true);
@@ -48,7 +59,7 @@ describe('problems registry', () => {
     expect(steps.at(-1)).toMatchObject({ meta: { label: 'done' } });
   });
 
-  test('registry에는 최소 3개 문제가 등록되어 있다', () => {
-    expect(registry.length).toBeGreaterThanOrEqual(3);
+  test('registry에는 최소 4개 문제가 등록되어 있다', () => {
+    expect(registry.length).toBeGreaterThanOrEqual(4);
   });
 });

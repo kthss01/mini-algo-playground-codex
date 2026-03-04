@@ -23,8 +23,17 @@ export function renderStepState(container, step) {
   const hasArray =
     Array.isArray(payload.items) ||
     Array.isArray(payload.array) ||
-    Array.isArray(payload.nums);
-  const hasMapList = payload.map || payload.list || payload.seen;
+    Array.isArray(payload.nums) ||
+    Array.isArray(payload.sorted) ||
+    Array.isArray(payload.intervals);
+  const hasMapList =
+    payload.map ||
+    payload.list ||
+    payload.seen ||
+    payload.freq ||
+    payload.heap ||
+    payload.pushed ||
+    payload.removed;
 
   if (hasArray) {
     container.appendChild(renderArrayState(payload));

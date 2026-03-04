@@ -1,6 +1,7 @@
 const { buildDummySteps } = require('../visualizers/p000_dummy.steps');
 const { buildTwoSumSteps } = require('../visualizers/p001_two_sum.steps');
 const { buildMergeIntervalsSteps } = require('../visualizers/p002_merge_intervals.steps');
+const { buildTopKFrequentSteps } = require('../visualizers/p003_top_k_frequent.steps');
 
 const registry = [
   {
@@ -35,6 +36,16 @@ const registry = [
     },
     rendererType: 'array',
     buildSteps: buildMergeIntervalsSteps,
+  },
+  {
+    id: 'P003',
+    title: 'Top K Frequent',
+    defaultInput: {
+      nums: [1, 1, 1, 2, 2, 3],
+      k: 2,
+    },
+    rendererType: 'array',
+    buildSteps: buildTopKFrequentSteps,
   },
 ];
 
