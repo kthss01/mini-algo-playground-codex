@@ -23,12 +23,23 @@ describe('problems registry', () => {
     });
   });
 
+  test('P002 Merge Intervals 문제가 존재한다', () => {
+    const p002 = getProblemById('P002');
+
+    expect(p002).not.toBeNull();
+    expect(p002).toMatchObject({
+      id: 'P002',
+      title: 'Merge Intervals',
+      rendererType: 'array',
+    });
+  });
+
   test('존재하지 않는 문제 id는 null을 반환한다', () => {
     expect(getProblemById('P999')).toBeNull();
   });
 
   test('buildSteps는 Step 배열을 반환하고 done step을 포함한다', () => {
-    const problem = getProblemById('P001');
+    const problem = getProblemById('P002');
     const steps = problem.buildSteps(problem.defaultInput);
 
     expect(Array.isArray(steps)).toBe(true);
@@ -37,7 +48,7 @@ describe('problems registry', () => {
     expect(steps.at(-1)).toMatchObject({ meta: { label: 'done' } });
   });
 
-  test('registry에는 최소 2개 문제가 등록되어 있다', () => {
-    expect(registry.length).toBeGreaterThanOrEqual(2);
+  test('registry에는 최소 3개 문제가 등록되어 있다', () => {
+    expect(registry.length).toBeGreaterThanOrEqual(3);
   });
 });

@@ -1,5 +1,6 @@
 const { buildDummySteps } = require('../visualizers/p000_dummy.steps');
 const { buildTwoSumSteps } = require('../visualizers/p001_two_sum.steps');
+const { buildMergeIntervalsSteps } = require('../visualizers/p002_merge_intervals.steps');
 
 const registry = [
   {
@@ -20,6 +21,20 @@ const registry = [
     },
     rendererType: 'array',
     buildSteps: buildTwoSumSteps,
+  },
+  {
+    id: 'P002',
+    title: 'Merge Intervals',
+    defaultInput: {
+      intervals: [
+        [1, 3],
+        [2, 6],
+        [8, 10],
+        [15, 18],
+      ],
+    },
+    rendererType: 'array',
+    buildSteps: buildMergeIntervalsSteps,
   },
 ];
 

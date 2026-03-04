@@ -79,3 +79,15 @@
 - 결과: `docs/problems.js`에 P001 Step 생성 흐름 추가
 - 결과: 렌더러가 `nums`, `seen`, `pair` 상태를 표시하도록 개선
 - 결과: 레지스트리 테스트에 P001 검증 추가
+
+### D3 P002 문제 아티팩트 추가
+- 수행 일시: 2026-03-04
+- 결과: `problems/P002_merge_intervals.md`, `src/algorithms/p002_merge_intervals.js`, `src/visualizers/p002_merge_intervals.steps.js`, `test/p002_merge_intervals.test.js` 작성
+- 포함: 정렬+sweep 병합 로직, compare/visit/state Step 생성, 엣지 테스트
+
+### D4 P002 레지스트리/UI 연결
+- 수행 일시: 2026-03-04
+- 결과: `src/registry/problems.registry.js`에 P002 등록
+- 결과: `docs/problems.js`에 P002 Step 생성 흐름 추가
+- 결과: 배열 렌더러가 interval/merged 상태를 표시하도록 확장
+- 결과: 레지스트리 테스트에 P002 검증 추가
