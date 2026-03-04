@@ -115,3 +115,14 @@
 - 결과: `docs/problems.js`에 P004 Step 생성 흐름 추가
 - 결과: 렌더러가 `order`, `size`, `op/output/outputs`, `capacity` 상태를 표시하도록 확장
 - 결과: 레지스트리 테스트에 P004 검증 추가
+
+## Phase E
+
+### E1 README 문서화 정리
+- 수행 일시: 2026-03-04
+- 결과: 실행 방법, 학습 루프, Step 규약, 문제 추가 체크리스트를 `README.md`에 정리
+
+### E2 CONTRIBUTING/PR 템플릿 정리
+- 수행 일시: 2026-03-04
+- 결과: `CONTRIBUTING.md`에 TODO→테스트→커밋→리뷰 요청 절차 문서화
+- 결과: `.github/pull_request_template.md` 추가
