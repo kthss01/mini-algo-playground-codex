@@ -65,3 +65,17 @@
 - 결과: `src/registry/problems.registry.js`를 P000 steps 생성기와 연결
 - 결과: `docs/problems.js`를 P000 더미 흐름(init/visit/done)으로 갱신
 - 결과: `test/p000_dummy.test.js` 추가 및 `test/registry.problems.test.js` 강화
+
+## Phase D
+
+### D1 P001 문제 아티팩트 추가
+- 수행 일시: 2026-03-04
+- 결과: `problems/P001_two_sum.md`, `src/algorithms/p001_two_sum.js`, `src/visualizers/p001_two_sum.steps.js`, `test/p001_two_sum.test.js` 작성
+- 포함: Two Sum 순수 함수, compare/visit/state 기반 Step 생성기, 기본/엣지 테스트
+
+### D2 P001 레지스트리/UI 연결
+- 수행 일시: 2026-03-04
+- 결과: `src/registry/problems.registry.js`에 P001 등록
+- 결과: `docs/problems.js`에 P001 Step 생성 흐름 추가
+- 결과: 렌더러가 `nums`, `seen`, `pair` 상태를 표시하도록 개선
+- 결과: 레지스트리 테스트에 P001 검증 추가

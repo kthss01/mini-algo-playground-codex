@@ -1,50 +1,4 @@
-function buildDummySteps(input) {
-  const items = Array.isArray(input?.items) ? [...input.items] : [];
-  const steps = [
-    {
-      kind: 'state',
-      payload: {
-        items,
-        pointer: 0,
-        visited: [],
-      },
-      meta: { label: 'init' },
-    },
-  ];
-
-  const visited = [];
-
-  items.forEach((value, pointer) => {
-    visited.push(value);
-    steps.push({
-      kind: 'visit',
-      payload: {
-        items,
-        pointer,
-        visited: [...visited],
-      },
-      meta: { label: `visit index ${pointer}` },
-    });
-  });
-
-  const result = {
-    sum: items.reduce((acc, value) => acc + Number(value || 0), 0),
-    count: items.length,
-  };
-
-  steps.push({
-    kind: 'state',
-    payload: {
-      items,
-      pointer: items.length - 1,
-      visited,
-      result,
-    },
-    meta: { label: 'done' },
-  });
-
-  return steps;
-}
+const { twoSum } = require('../algorithms/p001_two_sum');
 
 function buildTwoSumSteps(input) {
   const nums = Array.isArray(input?.nums) ? [...input.nums] : [];
@@ -126,24 +80,19 @@ function buildTwoSumSteps(input) {
   return steps;
 }
 
-export const problems = [
-  {
-    id: 'P000',
-    title: 'Dummy Walkthrough',
-    defaultInput: {
-      items: [1, 2, 3],
-    },
-    rendererType: 'array',
-    buildSteps: buildDummySteps,
-  },
-  {
-    id: 'P001',
-    title: 'Two Sum',
-    defaultInput: {
-      nums: [2, 7, 11, 15],
-      target: 9,
-    },
-    rendererType: 'array',
-    buildSteps: buildTwoSumSteps,
-  },
-];
+function solveWithSteps(input) {
+  const nums = Array.isArray(input?.nums) ? [...input.nums] : [];
+  const target = Number(input?.target ?? 0);
+  const result = twoSum(nums, target);
+  const steps = buildTwoSumSteps({ nums, target });
+
+  return {
+    result,
+    steps,
+  };
+}
+
+module.exports = {
+  buildTwoSumSteps,
+  solveWithSteps,
+};

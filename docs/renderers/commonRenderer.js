@@ -20,14 +20,21 @@ export function renderStepState(container, step) {
   container.appendChild(labelBadge);
 
   const payload = step.payload || {};
-  const hasArray = Array.isArray(payload.items) || Array.isArray(payload.array);
-  const hasMapList = payload.map || payload.list;
+  const hasArray =
+    Array.isArray(payload.items) ||
+    Array.isArray(payload.array) ||
+    Array.isArray(payload.nums);
+  const hasMapList = payload.map || payload.list || payload.seen;
 
   if (hasArray) {
     container.appendChild(renderArrayState(payload));
-  } else if (hasMapList) {
+  }
+
+  if (hasMapList) {
     container.appendChild(renderMapListState(payload));
-  } else {
+  }
+
+  if (!hasArray && !hasMapList) {
     const pre = document.createElement('pre');
     pre.textContent = JSON.stringify(payload, null, 2);
     container.appendChild(pre);

@@ -1,4 +1,5 @@
 const { buildDummySteps } = require('../visualizers/p000_dummy.steps');
+const { buildTwoSumSteps } = require('../visualizers/p001_two_sum.steps');
 
 const registry = [
   {
@@ -9,6 +10,16 @@ const registry = [
     },
     rendererType: 'array',
     buildSteps: buildDummySteps,
+  },
+  {
+    id: 'P001',
+    title: 'Two Sum',
+    defaultInput: {
+      nums: [2, 7, 11, 15],
+      target: 9,
+    },
+    rendererType: 'array',
+    buildSteps: buildTwoSumSteps,
   },
 ];
 
