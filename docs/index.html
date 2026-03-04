@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Algo Playground</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Mini Algo Playground</h1>
+
+      <section class="controls">
+        <label>
+          문제 선택
+          <select id="problem-select"></select>
+        </label>
+
+        <label>
+          입력값(JSON)
+          <textarea id="input-json" rows="8"></textarea>
+        </label>
+
+        <button id="run-btn" type="button">실행</button>
+      </section>
+
+      <section class="player-controls">
+        <button id="prev-btn" type="button">이전</button>
+        <button id="play-btn" type="button">재생</button>
+        <button id="pause-btn" type="button">일시정지</button>
+        <button id="next-btn" type="button">다음</button>
+
+        <label>
+          속도
+          <input id="speed-input" type="number" min="0.25" step="0.25" value="1" />
+        </label>
+      </section>
+
+      <section class="status">
+        <h2>현재 Step</h2>
+        <pre id="current-step">(실행 전)</pre>
+      </section>
+
+      <section class="state-panel">
+        <h2>내부 상태</h2>
+        <div id="state-view"></div>
+      </section>
+
+      <section class="message-panel">
+        <h2>메시지</h2>
+        <p id="message">준비 완료</p>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

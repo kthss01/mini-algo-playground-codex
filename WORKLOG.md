@@ -35,3 +35,20 @@
 - 수행 일시: 2026-03-04
 - 결과: `stepTypes`, `stepPlayer`, `registry` 대상 Jest 테스트 3종 추가
 - 이슈: npm 레지스트리 403으로 Jest 설치가 여전히 불가하여 테스트 실행은 환경 제한
+
+## Phase B
+
+### B1 정적 UI 레이아웃 구성
+- 수행 일시: 2026-03-04
+- 결과: `docs/index.html`, `docs/style.css` 작성
+- 포함: 문제 선택, 입력 JSON, 실행 버튼, 재생 컨트롤, Step/상태/메시지 패널
+
+### B2 앱 로직 및 플레이어 연결
+- 수행 일시: 2026-03-04
+- 결과: `docs/app.js`, `docs/player.js`, `docs/problems.js` 작성
+- 포함: 문제 선택/입력 초기화/실행/이전·다음/재생·일시정지/속도 반영
+
+### B3 공통/문제별 렌더러 분리
+- 수행 일시: 2026-03-04
+- 결과: `docs/renderers/commonRenderer.js`, `arrayRenderer.js`, `mapListRenderer.js` 작성
+- 포함: Step payload 타입별 렌더 분기 및 기본 시각화
