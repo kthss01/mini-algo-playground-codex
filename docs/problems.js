@@ -4,96 +4,67 @@ import { buildMergeIntervalsSteps } from './problemBuilders/p002.js';
 import { buildTopKFrequentSteps } from './problemBuilders/p003.js';
 import { buildLRUSteps } from './problemBuilders/p004.js';
 
-const twoSumTemplate = `function solve(input) {
+const twoSumTemplate = `function twoSum(nums, target) {
+  // TODO: twoSum을 구현하세요.
+  // 예: [2, 7, 11, 15], target=9 -> [0, 1]
+  return [];
+}
+
+function solve(input) {
   const nums = Array.isArray(input?.nums) ? input.nums : [];
   const target = Number(input?.target ?? 0);
-  const seen = new Map();
+  return twoSum(nums, target);
+}`;
 
-  for (let i = 0; i < nums.length; i += 1) {
-    const current = Number(nums[i]);
-    const complement = target - current;
-    if (seen.has(complement)) {
-      return [seen.get(complement), i];
-    }
-    seen.set(current, i);
-  }
-
+const mergeIntervalsTemplate = `function mergeIntervals(intervals) {
+  // TODO: mergeIntervals를 구현하세요.
+  // 예: [[1,3],[2,6],[8,10],[15,18]] -> [[1,6],[8,10],[15,18]]
   return [];
+}
+
+function solve(input) {
+  const intervals = Array.isArray(input?.intervals)
+    ? input.intervals.map((x) => [...x])
+    : [];
+  return mergeIntervals(intervals);
 }`;
 
-const mergeIntervalsTemplate = `function solve(input) {
-  const intervals = Array.isArray(input?.intervals) ? input.intervals.map((x) => [...x]) : [];
-  if (intervals.length === 0) return [];
+const topKTemplate = `function topKFrequent(nums, k) {
+  // TODO: topKFrequent를 구현하세요.
+  // 예: [1,1,1,2,2,3], k=2 -> [1,2]
+  return [];
+}
 
-  intervals.sort((a, b) => a[0] - b[0]);
-  const merged = [[...intervals[0]]];
-
-  for (let i = 1; i < intervals.length; i += 1) {
-    const current = intervals[i];
-    const last = merged[merged.length - 1];
-    if (current[0] <= last[1]) {
-      last[1] = Math.max(last[1], current[1]);
-    } else {
-      merged.push([...current]);
-    }
-  }
-
-  return merged;
-}`;
-
-const topKTemplate = `function solve(input) {
+function solve(input) {
   const nums = Array.isArray(input?.nums) ? input.nums : [];
   const k = Math.max(0, Number(input?.k) || 0);
-  const freq = new Map();
-
-  for (const num of nums) {
-    freq.set(num, (freq.get(num) || 0) + 1);
-  }
-
-  return [...freq.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, k)
-    .map(([num]) => Number(num));
+  return topKFrequent(nums, k);
 }`;
 
-const lruTemplate = `function solve(input) {
+const lruTemplate = `class LRUCache {
+  constructor(capacity) {
+    // TODO: capacity를 저장하고 필요한 자료구조를 초기화하세요.
+  }
+
+  get(key) {
+    // TODO: 값을 반환하고 최근 사용 상태를 갱신하세요. 없으면 -1 반환.
+    return -1;
+  }
+
+  put(key, value) {
+    // TODO: 값을 저장하고 capacity를 넘기면 가장 오래된 항목을 제거하세요.
+  }
+}
+
+function runLRUScenario(capacity, ops) {
+  // TODO: ops를 순회하면서 get 결과만 배열에 담아 반환하세요.
+  return [];
+}
+
+function solve(input) {
   const capacity = Math.max(1, Number(input?.capacity) || 1);
   const ops = Array.isArray(input?.ops) ? input.ops : [];
-  const map = new Map();
-  const order = [];
-  const outputs = [];
-
-  function touch(key) {
-    const idx = order.indexOf(key);
-    if (idx >= 0) order.splice(idx, 1);
-    order.unshift(key);
-  }
-
-  for (const op of ops) {
-    if (op?.type === 'put') {
-      const key = Number(op.key);
-      const value = Number(op.value);
-      map.set(key, value);
-      touch(key);
-      if (map.size > capacity) {
-        const removed = order.pop();
-        map.delete(removed);
-      }
-    }
-
-    if (op?.type === 'get') {
-      const key = Number(op.key);
-      if (map.has(key)) {
-        const value = map.get(key);
-        touch(key);
-        outputs.push(value);
-      } else {
-        outputs.push(-1);
-      }
-    }
-  }
-
-  return outputs;
+  return runLRUScenario(capacity, ops);
 }`;
 
 export const problems = [
@@ -103,12 +74,14 @@ export const problems = [
     defaultInput: { items: [1, 2, 3] },
     rendererType: 'array',
     buildSteps: buildDummySteps,
-    codeTemplate: `function solve(input) {
+    codeTemplate: `function solveDummy(items) {
+  // TODO: items의 합계(sum)와 개수(count)를 반환하세요.
+  return { sum: 0, count: 0 };
+}
+
+function solve(input) {
   const items = Array.isArray(input?.items) ? input.items : [];
-  return {
-    sum: items.reduce((acc, value) => acc + Number(value || 0), 0),
-    count: items.length,
-  };
+  return solveDummy(items);
 }`,
   },
   {

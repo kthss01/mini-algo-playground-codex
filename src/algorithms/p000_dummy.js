@@ -4,7 +4,7 @@
 // 2) count는 입력 배열 길이를 사용해보세요.
 // 3) 입력이 비정상일 때의 기본값도 고려해보세요.
 
-function solveDummy() {
+function solveDummy(items) {
   throw new Error('TODO: solveDummy를 구현하세요. (정답 예시: src/answer/p000_dummy.answer.js)');
 }
 
