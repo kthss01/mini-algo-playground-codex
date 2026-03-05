@@ -1,4 +1,4 @@
-const { LRUCache, runLRUScenario } = require('../src/algorithms/p004_lru_cache');
+const { LRUCache, runLRUScenario } = require('../src/answer/p004_lru_cache.answer');
 const { buildLRUSteps } = require('../src/visualizers/p004_lru_cache.steps');
 
 describe('P004 LRU cache', () => {

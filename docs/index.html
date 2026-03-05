@@ -8,45 +8,55 @@
   </head>
   <body>
     <main class="container">
-      <h1>Mini Algo Playground</h1>
+      <header class="hero">
+        <p class="hero-badge">Algorithm Visual Studio</p>
+        <h1>Mini Algo Playground</h1>
+        <p class="hero-description">문제를 선택하고 JSON 입력을 수정해, 알고리즘의 내부 상태를 단계별로 확인하세요.</p>
+      </header>
 
-      <section class="controls">
-        <label>
-          문제 선택
-          <select id="problem-select"></select>
-        </label>
+      <section class="panel controls-panel">
+        <h2>실행 설정</h2>
+        <div class="controls-grid">
+          <label>
+            문제 선택
+            <select id="problem-select"></select>
+          </label>
 
-        <label>
-          입력값(JSON)
-          <textarea id="input-json" rows="8"></textarea>
-        </label>
+          <label class="json-input">
+            입력값(JSON)
+            <textarea id="input-json" rows="10"></textarea>
+          </label>
+        </div>
 
-        <button id="run-btn" type="button">실행</button>
+        <button id="run-btn" type="button" class="primary-btn">실행</button>
       </section>
 
-      <section class="player-controls">
-        <button id="prev-btn" type="button">이전</button>
-        <button id="play-btn" type="button">재생</button>
-        <button id="pause-btn" type="button">일시정지</button>
-        <button id="next-btn" type="button">다음</button>
+      <section class="panel player-controls">
+        <h2>플레이어</h2>
+        <div class="button-row">
+          <button id="prev-btn" type="button">이전</button>
+          <button id="play-btn" type="button" class="primary-btn">재생</button>
+          <button id="pause-btn" type="button">일시정지</button>
+          <button id="next-btn" type="button">다음</button>
 
-        <label>
-          속도
-          <input id="speed-input" type="number" min="0.25" step="0.25" value="1" />
-        </label>
+          <label class="speed-label">
+            속도
+            <input id="speed-input" type="number" min="0.25" step="0.25" value="1" />
+          </label>
+        </div>
       </section>
 
-      <section class="status">
+      <section class="panel status">
         <h2>현재 Step</h2>
         <pre id="current-step">(실행 전)</pre>
       </section>
 
-      <section class="state-panel">
+      <section class="panel state-panel">
         <h2>내부 상태</h2>
         <div id="state-view"></div>
       </section>
 
-      <section class="message-panel">
+      <section class="panel message-panel">
         <h2>메시지</h2>
         <p id="message">준비 완료</p>
       </section>

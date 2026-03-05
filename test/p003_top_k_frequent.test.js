@@ -1,4 +1,4 @@
-const { topKFrequent } = require('../src/algorithms/p003_top_k_frequent');
+const { topKFrequent } = require('../src/answer/p003_top_k_frequent.answer');
 const { buildTopKFrequentSteps } = require('../src/visualizers/p003_top_k_frequent.steps');
 
 describe('P003 top k frequent', () => {

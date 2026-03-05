@@ -1,4 +1,4 @@
-const { twoSum } = require('../src/algorithms/p001_two_sum');
+const { twoSum } = require('../src/answer/p001_two_sum.answer');
 const { buildTwoSumSteps } = require('../src/visualizers/p001_two_sum.steps');
 
 describe('P001 two sum', () => {

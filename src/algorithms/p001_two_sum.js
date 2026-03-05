@@ -1,23 +1,10 @@
 // TODO(학습): twoSum 문제를 직접 풀어보세요.
-// - 1차: 브루트포스 O(n^2) 구현
-// - 2차: 해시맵으로 O(n) 개선
+// 힌트:
+// 1) 브루트포스 O(n^2)로 먼저 구현해보세요.
+// 2) 이후 해시맵(Map)으로 O(n)으로 개선해보세요.
 
-function twoSum(nums, target) {
-  const safeNums = Array.isArray(nums) ? nums : [];
-  const seen = new Map();
-
-  for (let i = 0; i < safeNums.length; i += 1) {
-    const current = Number(safeNums[i]);
-    const complement = Number(target) - current;
-
-    if (seen.has(complement)) {
-      return [seen.get(complement), i];
-    }
-
-    seen.set(current, i);
-  }
-
-  return [];
+function twoSum() {
+  throw new Error('TODO: twoSum을 구현하세요. (정답 예시: src/answer/p001_two_sum.answer.js)');
 }
 
 module.exports = {
