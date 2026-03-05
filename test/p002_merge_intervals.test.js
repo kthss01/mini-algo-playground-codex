@@ -1,4 +1,4 @@
-const { mergeIntervals } = require('../src/algorithms/p002_merge_intervals');
+const { mergeIntervals } = require('../src/answer/p002_merge_intervals.answer');
 const { buildMergeIntervalsSteps } = require('../src/visualizers/p002_merge_intervals.steps');
 
 describe('P002 merge intervals', () => {

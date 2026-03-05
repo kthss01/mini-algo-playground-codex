@@ -29,11 +29,12 @@ npm run dev
 
 ## 학습 루프
 1. `problems/Pxxx_*.md` 문제 읽기
-2. `src/algorithms/pxxx_*.js` TODO 구현
-3. `test/pxxx_*.test.js` 테스트 실행/보강
-4. `src/visualizers/pxxx_*.steps.js` 시각화 step 생성기 구현
-5. `src/registry/problems.registry.js` + `docs/problems.js` 등록
-6. 커밋 후 Codex 리뷰 요청
+2. `src/algorithms/pxxx_*.js` TODO 파일에 직접 풀이 구현
+3. 필요 시 `src/answer/pxxx_*.answer.js` 정답 예시와 비교
+4. `test/pxxx_*.test.js` 테스트 실행/보강
+5. `src/visualizers/pxxx_*.steps.js` 시각화 step 생성기 구현
+6. `src/registry/problems.registry.js` + `docs/problems.js` 등록
+7. 커밋 후 Codex 리뷰 요청
 
 ## Step 포맷 규약
 ```js
@@ -50,7 +51,8 @@ npm run dev
 
 ## 문제 추가 체크리스트
 - [ ] `problems/P0NN_title.md`
-- [ ] `src/algorithms/p0nn_title.js`
+- [ ] `src/algorithms/p0nn_title.js` (TODO 학습용)
+- [ ] `src/answer/p0nn_title.answer.js` (정답 예시)
 - [ ] `src/visualizers/p0nn_title.steps.js`
 - [ ] `test/p0nn_title.test.js`
 - [ ] `src/registry/problems.registry.js` 등록

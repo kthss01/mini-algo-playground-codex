@@ -1,4 +1,4 @@
-const { solveDummy } = require('../src/algorithms/p000_dummy');
+const { solveDummy } = require('../src/answer/p000_dummy.answer');
 const { buildDummySteps } = require('../src/visualizers/p000_dummy.steps');
 
 describe('P000 dummy', () => {
