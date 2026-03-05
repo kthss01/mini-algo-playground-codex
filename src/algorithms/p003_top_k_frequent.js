@@ -1,3 +1,7 @@
+// TODO(학습): topKFrequent를 직접 구현해보세요.
+// - 빈도맵 생성
+// - min-heap(또는 버킷)으로 상위 k개 추출
+
 class MinHeap {
   constructor() {
     this.arr = [];

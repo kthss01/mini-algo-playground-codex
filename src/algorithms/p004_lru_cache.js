@@ -1,3 +1,7 @@
+// TODO(학습): LRUCache 동작을 직접 구현/검증해보세요.
+// - get/put 시 최근 사용 순서 갱신
+// - capacity 초과 시 LRU eviction
+
 class Node {
   constructor(key, value) {
     this.key = key;
