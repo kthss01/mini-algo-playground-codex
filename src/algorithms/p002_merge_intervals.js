@@ -1,3 +1,7 @@
+// TODO(학습): mergeIntervals를 직접 구현해보세요.
+// - start 기준 정렬
+// - 마지막 병합 구간과 겹침 여부로 push/merge 분기
+
 function mergeIntervals(intervals) {
   const safeIntervals = Array.isArray(intervals)
     ? intervals
