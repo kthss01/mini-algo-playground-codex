@@ -31,6 +31,19 @@
         <button id="run-btn" type="button" class="primary-btn">실행</button>
       </section>
 
+      <section class="panel editor-panel">
+        <h2>코드 편집기 / 실행 결과</h2>
+        <label class="json-input">
+          코드 (solve(input) 함수)
+          <textarea id="source-code" rows="16"></textarea>
+        </label>
+        <div class="button-row editor-actions">
+          <button id="run-code-btn" type="button" class="primary-btn">코드 실행/채점</button>
+        </div>
+        <p id="submit-hint" class="submit-hint"></p>
+        <pre id="code-result">(코드 실행 전)</pre>
+      </section>
+
       <section class="panel player-controls">
         <h2>플레이어</h2>
         <div class="button-row">
