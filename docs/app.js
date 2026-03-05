@@ -16,9 +16,7 @@ const messageEl = document.getElementById('message');
 
 const player = createUIPlayer({
   onStepChange: ({ step, index, total }) => {
-    currentStepEl.textContent = step
-      ? JSON.stringify({ index, total, ...step }, null, 2)
-      : '(step 없음)';
+    currentStepEl.textContent = step ? JSON.stringify({ index, total, ...step }, null, 2) : '(step 없음)';
     renderStepState(stateViewEl, step);
   },
 });
@@ -28,14 +26,26 @@ function setMessage(text) {
 }
 
 function getSelectedProblem() {
-  return problems.find((problem) => problem.id === problemSelect.value) || problems[0];
+  return problems.find((problem) => problem.id === problemSelect.value) || problems[0] || null;
 }
 
 function refreshInput(problem) {
+  if (!problem) {
+    inputJson.value = '{}';
+    return;
+  }
   inputJson.value = JSON.stringify(problem.defaultInput, null, 2);
 }
 
 function initProblemSelect() {
+  if (!Array.isArray(problems) || problems.length === 0) {
+    problemSelect.disabled = true;
+    runBtn.disabled = true;
+    setMessage('등록된 문제가 없습니다.');
+    refreshInput(null);
+    return;
+  }
+
   problems.forEach((problem) => {
     const option = document.createElement('option');
     option.value = problem.id;
@@ -55,8 +65,17 @@ function initProblemSelect() {
 runBtn.addEventListener('click', () => {
   try {
     const selected = getSelectedProblem();
+    if (!selected) {
+      setMessage('실행할 문제가 없습니다.');
+      return;
+    }
+
     const parsed = JSON.parse(inputJson.value || '{}');
     const steps = selected.buildSteps(parsed);
+    if (!Array.isArray(steps)) {
+      throw new Error('Step 생성 결과가 배열이 아닙니다.');
+    }
+
     player.setSteps(steps);
     setMessage(`${selected.id} 실행 완료 (총 ${steps.length} step)`);
   } catch (error) {
